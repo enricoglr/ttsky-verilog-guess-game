@@ -14,8 +14,8 @@
     );
 
     typedef enum logic[2:0] {INIT, LOAD_GAME, LOAD_ROUND, IDLE, COUNT_CORRECT, COUNT_WRONG, DONE_ROUND, DONE_GAME} state_t;
-    localparam WIDTH = 4;
-    localparam logic [2:0] MAX_GUESSES = 4'd5; 
+    localparam logic [2:0] WIDTH = 3'd4;
+    localparam logic [3:0] MAX_GUESSES = 4'd5; 
 
     //Controll Logic register
     state_t state_p, state_n; 

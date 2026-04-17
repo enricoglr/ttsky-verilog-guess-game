@@ -21,7 +21,7 @@ module tt_um_enrico_glr (
   //assign uio_out = 0;
   //assign uio_oe  = 0;
 
-  assign uio_out = 7'b000_0000;
+  assign uio_out = 8'b000_0000;
   assign uio_oe  = 8'b1000_0000;
   
 game my_game (
