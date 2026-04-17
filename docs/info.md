@@ -9,11 +9,12 @@ You can also include images in this folder and reference them in the markdown. E
 
 ## How it works
 
-Explain how your project works
+Input one Secret. ANother Person has 5 Rounds to guess the secret number
 
 ## How to test
 
 Explain how to use your project
+test
 
 ## External hardware
 
