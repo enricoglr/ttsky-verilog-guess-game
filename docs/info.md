@@ -13,8 +13,12 @@ Input one Secret. ANother Person has 5 Rounds to guess the secret number
 
 ## How to test
 
-Explain how to use your project
-test
+1. One Person sets the 4 bit secrert password once at the begining. 
+2. Set init_game high
+3. Another Person can can set the 4 bit guess 
+4. Set guess valid 
+5. Feedback how many correct positons and how many correct numbers 
+7. repeat 3-5 until password was guessed or maximum number of guesses was execeeded (5)
 
 ## External hardware
 
