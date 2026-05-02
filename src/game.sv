@@ -121,7 +121,7 @@
 
         end COUNT_CORRECT: begin
             
-            if (idx_p < WIDTH) begin
+            if ({1'b0, idx_p} < WIDTH) begin
                 if (secret_p[idx_p] == guess_p[idx_p])begin
                 correct_n = correct_p + 1; 
                 secret_used_n[idx_p] = 1; 
@@ -130,7 +130,7 @@
                 idx_n = idx_p +1; 
             end 
 
-            if (idx_p == WIDTH -1) begin
+            if ({1'b0, idx_p} == WIDTH -1) begin
                 state_n = COUNT_WRONG; 
                 idx_n = 0; 
             end 
@@ -157,7 +157,7 @@
                 end 
             end 
             idx_n = idx_p +1; 
-            if (idx_p == WIDTH -1)begin
+            if ({1'b0, idx_p}== WIDTH -1)begin
                 idx_n = 0; 
                 state_n = DONE_ROUND; 
             end
