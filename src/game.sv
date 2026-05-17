@@ -9,7 +9,7 @@
         output logic busy_o, 
         output logic valid_o, 
         output logic[2:0] correct_o,  
-        output logic[2:0] wrong_o, //TODO: show both or just one ?
+        output logic[2:0] wrong_o, 
         output logic win_o
     );
 
@@ -99,6 +99,8 @@
                 state_n = LOAD_GAME; 
             end 
         end LOAD_GAME: begin
+            correct_n = 0;
+            wrong_n = 0;
             secret_n = secret_i; 
             guess_counter_n = 0; 
             state_n = IDLE; 
@@ -110,7 +112,7 @@
             idx_n = 0; 
             guess_n = guess_i; 
             state_n = COUNT_CORRECT; 
-            guess_counter_n = guess_counter_p + 1;  //WIESO ?
+            guess_counter_n = guess_counter_p + 1;  
         
         end IDLE: begin
             if (init_game_i) begin 
@@ -164,15 +166,21 @@
         end DONE_ROUND: begin
             valid_n = 1; 
 
-            if (guess_counter_p >= MAX_GUESSES) begin
+            if (guess_counter_p >= MAX_GUESSES || correct_p == WIDTH) begin
                 state_n = DONE_GAME; 
+            end else if (guess_valid_i)begin
+                state_n = LOAD_ROUND; 
             end else begin
                 state_n = IDLE; 
             end
 
         end DONE_GAME: begin    
-            valid_n = 1; 
-            state_n = IDLE; 
+            valid_n = 0; 
+            if (init_game_i) begin
+                state_n = LOAD_GAME;
+            end else begin 
+                state_n = DONE_GAME;
+            end
 
         end default: begin
             state_n = INIT; 
